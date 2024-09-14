@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-
+import 'package:hive_flutter/adapters.dart';
+import 'package:note_app/constants.dart';
 import 'package:note_app/views/note_app_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:note_app/views/update_note_view.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(kNotebox);
   runApp(const NoteApp());
 }
 
