@@ -10,10 +10,10 @@ class NoteAppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<NotesCubit>(
+    return SafeArea(
+        child: BlocProvider<NotesCubit>(
       create: (context) => NotesCubit(),
-      child: SafeArea(
-          child: Scaffold(
+      child: Scaffold(
         resizeToAvoidBottomInset: false,
         floatingActionButton: FloatingActionButton(
           shape:
@@ -30,7 +30,7 @@ class NoteAppView extends StatelessWidget {
           ),
         ),
         body: const NoteViewBody(),
-      )),
-    );
+      ),
+    ));
   }
 }
