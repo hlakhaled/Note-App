@@ -3,9 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:note_app/cubits/add_notes_cubit/add_note_cubit.dart';
+import 'package:note_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:note_app/models/note_model.dart';
+
 import 'package:note_app/views/widgets/custom_add_button.dart';
 import 'package:note_app/views/widgets/custom_text_field.dart';
+import 'package:note_app/views/widgets/list_circle_item.dart';
 //validation
 
 class AddNoteFormField extends StatefulWidget {
@@ -49,7 +52,11 @@ class _AddNoteFormFieldState extends State<AddNoteFormField> {
               maxline: 5,
             ),
             SizedBox(
-              height: 40.h,
+              height: 15.h,
+            ),
+            const ListCircleItem(),
+            SizedBox(
+              height: 15.h,
             ),
             CustomAddButton(
               onPressed: () {
@@ -59,8 +66,9 @@ class _AddNoteFormFieldState extends State<AddNoteFormField> {
                       title: title!,
                       subTitle: subTitle!,
                       date: DateFormat('dd-MM-yyyy').format(DateTime.now()),
-                      color: Colors.blue.value);
+                      color: context.read<AddNoteCubit>().color.value);
                   context.read<AddNoteCubit>().addNote(note);
+                  context.read<NotesCubit>().fetchData();
                 } else {
                   autovalidateMode = AutovalidateMode.always;
                   setState(() {});

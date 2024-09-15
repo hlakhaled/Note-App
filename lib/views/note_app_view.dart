@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:note_app/cubits/notes_cubit/notes_cubit.dart';
+
 import 'package:note_app/views/widgets/add_notes_bottom_sheet.dart';
 import 'package:note_app/views/widgets/note_view_body.dart';
 
@@ -11,8 +10,6 @@ class NoteAppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: BlocProvider<NotesCubit>(
-      create: (context) => NotesCubit(),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         floatingActionButton: FloatingActionButton(
@@ -31,6 +28,6 @@ class NoteAppView extends StatelessWidget {
         ),
         body: const NoteViewBody(),
       ),
-    ));
+    );
   }
 }

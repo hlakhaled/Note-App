@@ -6,6 +6,8 @@ class NoteStateIntial extends NotesState {}
 
 
 
+class NoteStateSuccess extends NotesState {
 
 
-
+  NoteStateSuccess();
+}

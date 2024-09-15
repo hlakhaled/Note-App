@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:note_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:note_app/models/note_model.dart';
 
 import 'package:note_app/themes/text_style.dart';
@@ -13,7 +16,7 @@ class CustomMessageContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, UpdateNoteView.id);
+        Navigator.pushNamed(context, UpdateNoteView.id, arguments: note);
       },
       child: Container(
         padding: EdgeInsets.only(left: 16.w, top: 24.h, bottom: 24.h),
@@ -38,6 +41,7 @@ class CustomMessageContainer extends StatelessWidget {
                 trailing: IconButton(
                   onPressed: () {
                     note.delete();
+                    context.read<NotesCubit>().fetchData();
                   },
                   icon: Icon(
                     FontAwesomeIcons.trash,
