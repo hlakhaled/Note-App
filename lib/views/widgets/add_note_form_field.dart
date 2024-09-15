@@ -20,43 +20,54 @@ class _AddNoteFormFieldState extends State<AddNoteFormField> {
   String? title, subTitle;
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _key,
-      autovalidateMode: autovalidateMode,
-      child: Column(
-        children: [
-          CustomTextField(
-            onSaved: (value) {
-              title = value;
-            },
-            text: "title",
-          ),
-          SizedBox(
-            height: 16.h,
-          ),
-          CustomTextField(
-            onSaved: (value) {
-              subTitle = title;
-            },
-            text: "Content",
-            maxline: 5,
-          ),
-          SizedBox(
-            height: 40.h,
-          ),
-          CustomAddButton(
-            onPressed: () {
-              if (_key.currentState!.validate()) {
-                _key.currentState!.save();
-                NoteModel note=NoteModel(title: title!, subTitle: subTitle!, date: DateTime.now().toString(), color: Colors.blue.value);
-                context.read<AddNoteCubit>().addNote(note);
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
-            },
-          ),
-        ],
+    return Padding(
+      padding: EdgeInsets.only(
+          top: 16.h,
+          left: 10.w,
+          right: 10.w,
+          bottom: MediaQuery.of(context).viewInsets.bottom),
+      child: Form(
+        key: _key,
+        autovalidateMode: autovalidateMode,
+        child: Column(
+          children: [
+            CustomTextField(
+              onSaved: (value) {
+                title = value;
+              },
+              text: "title",
+            ),
+            SizedBox(
+              height: 16.h,
+            ),
+            CustomTextField(
+              onSaved: (value) {
+                subTitle = title;
+              },
+              text: "Content",
+              maxline: 5,
+            ),
+            SizedBox(
+              height: 40.h,
+            ),
+            CustomAddButton(
+              onPressed: () {
+                if (_key.currentState!.validate()) {
+                  _key.currentState!.save();
+                  NoteModel note = NoteModel(
+                      title: title!,
+                      subTitle: subTitle!,
+                      date: DateTime.now().toString(),
+                      color: Colors.blue.value);
+                  context.read<AddNoteCubit>().addNote(note);
+                } else {
+                  autovalidateMode = AutovalidateMode.always;
+                  setState(() {});
+                }
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
