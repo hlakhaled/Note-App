@@ -1,16 +1,25 @@
-# note_app
+# 📝 Note App
 
-A new Flutter project.
+A simple and efficient Flutter app for managing notes locally.
 
-## Getting Started
+## 📋 Overview
 
-This project is a starting point for a Flutter application.
+The **Note App** is designed to help users create, edit, delete, and organize their notes with ease. Built for performance and simplicity, it utilizes **Hive** for local storage, ensuring fast and lightweight data handling.
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 📝 Create new notes  
+- ✏️ Edit existing notes  
+- ❌ Delete notes  
+- 📂 Organize and view all notes efficiently  
+- ⚡ Fast local storage with Hive  
+- 🧠 Built with Cubit and MVVM for clean state management
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🧱 Architecture & Tech Stack
+
+- **Flutter** for cross-platform UI  
+- **Hive** for efficient local storage  
+- **Cubit** for lightweight and reactive state management  
+- **MVVM architecture** for scalable and clean code structure
+
+https://github.com/user-attachments/assets/a4ca4280-7819-48f6-aeea-b250a328ae19
